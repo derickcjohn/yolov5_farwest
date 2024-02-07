@@ -5,7 +5,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import os
 
-image = Image.open('icon.png')
+image = Image.open('streamlit_site/icon.png')
 
 st.set_page_config(page_title="Cam stream Data - Live", 
                    page_icon=image, 
