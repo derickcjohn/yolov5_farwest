@@ -64,11 +64,11 @@ def weekly(start_date, data):
     return weekly_df, 'Date'
 
 
-file_path = 'count_result.xlsx'
+# file_path = 'count_result.xlsx'
 # data = load_data(file_path)
 
 # Check if the file exists
-file_path = 'count_result.xlsx'
+file_path = 'streamlit_site/count_result.xlsx'
 if not os.path.exists(file_path):
     st.error("No detections till now")
     data = None
