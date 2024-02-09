@@ -120,6 +120,3 @@ if display_mode == 'Daily':
     st.bar_chart(result.set_index(x_label)[selected_class], color='#666666')
 else:
     st.bar_chart(result.set_index('Date')[selected_class], color='#666666')
-plt.xticks(rotation=45, ha='right')  # Rotate x-axis labels for better readability
-st.pyplot(fig)
-
