@@ -102,26 +102,24 @@ else:
 st.divider()
 st.dataframe(result, use_container_width=True, hide_index=True)
 st.divider()
-st.bar_chart(result.set_index(result.columns[0]))
-# st.bar_chart(result.set_index(x=result.columns[0]))
+st.bar_chart(result.set_index(result.columns[0]), color=[
+    '#FFC0CB',  # Light Red (Pink)
+    # '#FF6347',  # Tomato
+    '#FF5733',  # Medium Red
+    # '#FF2400',  # Scarlet
+    '#DC143C',  # Crimson
+    # '#CD5C5C',  # Indian Red
+    '#8B0000',  # Dark Red (Maroon)
+    # '#800000'   # Dark Red (Maroon)
+])
 
-# Get the list of classes from the columns (excluding the first column)
-classes = data.columns[1:]
 
-# Add a dropdown for selecting a class
+classes = result.columns[1:]
 selected_class = st.selectbox("Select an object from the list", classes)
-# Plotting using Matplotlib for custom x-axis label
-fig, ax = plt.subplots()
 if display_mode == 'Daily':
-    ax.bar(result[x_label], result[selected_class])
-    ax.set_xlabel(x_label)
-    # ax.set_xticks(result[x_label])
+    st.bar_chart(result.set_index(x_label)[selected_class], color='#666666')
 else:
-    ax.bar(result['Date'], result[selected_class])
-    ax.set_xlabel(x_label)
-    # ax.set_xticks(result['Date'])
-
-ax.set_ylabel(selected_class)
+    st.bar_chart(result.set_index('Date')[selected_class], color='#666666')
 plt.xticks(rotation=45, ha='right')  # Rotate x-axis labels for better readability
 st.pyplot(fig)
 
